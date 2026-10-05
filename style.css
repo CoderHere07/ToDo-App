@@ -63,18 +63,58 @@ button:hover {
   padding: 10px;
   margin-bottom: 8px;
   border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 #list li input[type="checkbox"] {
   padding: 0;
   margin: 0;
 }
+#list li .todo-text {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#list li input:not([type="checkbox"]),
+#list li select,
+#list li button {
+  padding: 8px 10px;
+  flex-shrink: 0;
+}
+
+#list li input[type="checkbox"] {
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+}
 
 #list li button {
-  margin-left: auto;
   background: #e5484d;
 }
-.overdue {
-  color: red;
-  font-weight: bold;
+#list li button:first-of-type {
+  margin-left: auto;
+}
+
+#list li button[data-action="edit"],
+#list li button[data-action="save"] {
+  background: #4a6cf7;
+}
+
+#list li button.secondary {
+  background: #888;
+}
+
+#list li.editing {
+  flex-wrap: wrap;
+}
+#list li.editing .edit-input {
+  flex: 1 1 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+#list li.editing button:first-of-type {
+  margin-left: 0;
 }
